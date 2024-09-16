@@ -1,27 +1,25 @@
 # CALLING THE API - RapidAPI // Serie A
 
 import requests
-# from dotenv import load_dotenv, dotenv_values
-import os
+# import os
 
 from api_key import rapidapi_key
 
-print(rapidapi_key)
+url = "https://api-football-v1.p.rapidapi.com/v3/teams/statistics"
 
-url = "https://serie-a2.p.rapidapi.com/leaderboard"
+querystring = {"league":"135",
+               "season":"2023",
+               "team":"489"
+}
 
-# load_dotenv()
-# print(os.getenv("APIKEY"))
+headers = {
+	"x-rapidapi-key": rapidapi_key  ,
+	"x-rapidapi-host": "api-football-v1.p.rapidapi.com"
+}
 
-# headers = {
-#        "X-RapidAPI-Key": apikey,
-#        "X-RapidAPI-Host": "serie-a2.p.rapidapi.com"
-#}
-
-# print(f'===== calling API =====')
-# response = requests.get(url, headers=headers)
-# print(response.json())
-
+print(f'===== calling API =====')
+response = requests.get(url, headers=headers, params=querystring)
+print(response.json())
 
 league_id = 135             # "Serie A - ITA"
 
