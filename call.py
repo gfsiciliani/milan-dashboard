@@ -8,7 +8,7 @@ from api_key import rapidapi_key
 url = "https://api-football-v1.p.rapidapi.com/v3/teams/statistics"
 
 querystring = {"league":"135",
-               "season":"2023",
+               "season":"2024",
                "team":"489"
 }
 
