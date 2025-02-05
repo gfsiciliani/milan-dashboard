@@ -36,3 +36,11 @@ headers = {
 print(f'===== calling API =====')
 response = requests.get(url, headers=headers, params=querystring)
 print(response.json())
+
+# log response
+now = datetime.now()
+timestamp = now.strftime('%Y%m%d_%H%M%S')
+filename = timestamp + '_output.json'
+
+with open(filename, 'w') as json_file:
+    json.dump(response.json(), json_file, indent=4)
